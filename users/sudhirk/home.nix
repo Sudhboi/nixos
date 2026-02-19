@@ -1,10 +1,16 @@
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 
 {
+  imports = [
+    inputs.zen-browser.homeModules.twilight
+    ./imports.nix
+  ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "sudhirk";
   home.homeDirectory = "/home/sudhirk";
+
+  #programs.zen-browser.enable = true;
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -21,7 +27,7 @@
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
-
+    pkgs.alacritty
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
