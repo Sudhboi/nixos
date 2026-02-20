@@ -2,14 +2,11 @@
 
 {
   imports = [
-    inputs.niri.homeModules.niri
-    ./modules/layout_behaviour.nix
-    ./modules/custom_binds.nix
+    inputs.niri.nixosModules.niri
   ];
 
   programs.niri = {
     enable = true;
     package = pkgs.niri;
   };
-
 }

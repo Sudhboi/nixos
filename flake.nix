@@ -14,6 +14,14 @@
         home-manager.follows = "home-manager";
       };
     };
+
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
   };
 
   outputs = inputs @ {
@@ -21,6 +29,7 @@
       nixpkgs,
       home-manager,
       zen-browser,
+      niri,
       ...
   }:
     let
@@ -32,6 +41,7 @@
       nixos = lib.nixosSystem {
         inherit system;
         modules = [ ./system/configuration.nix ];
+        specialArgs = { inherit inputs; };
       };
     };
     homeConfigurations = {
