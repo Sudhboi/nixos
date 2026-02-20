@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./niri/niri.nix
+      ./niri/keyd.nix
     ];
 
   # Bootloader.
@@ -67,11 +68,17 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  # Enable ZSH
+  environment.shells = with pkgs; [ zsh ];
+  users.defaultUserShell = pkgs.zsh;
+  programs.zsh.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.sudhirk = {
     isNormalUser = true;
     description = "Sudhir Krisna";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.zsh;
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
@@ -97,7 +104,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     python3
-    emacs
+    emacs-pgtk
     vim
     wget
     git
