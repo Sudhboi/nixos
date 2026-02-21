@@ -5,5 +5,6 @@
     ./internet/zen-browser.nix
     ./desktop/niri/niri.nix
     ./shell/shell_stuff.nix
+    ./desktop/waybar/waybar.nix
   ];
 }

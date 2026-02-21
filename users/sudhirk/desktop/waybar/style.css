@@ -1,0 +1,53 @@
+@define-color background rgba(46, 52, 64, 0.98);
+@define-color text-color rgba(255, 255, 255, 0.7);
+@define-color background-translucent rgba(0, 0, 0, 0);
+@define-color warn-red rgba(255, 0, 0, 1);
+
+* {
+    font-family: 'JetBrainsMono Nerd Font';
+    /*font-size: 13px;*/
+    /*border-radius: 0px;*/
+    transition: 0.2s ease-out;
+    margin: 0px;
+    padding: 0px;
+    font-size: 0px;
+}
+
+window#waybar {
+    background-color: rgba(0, 0, 0, 0);
+    color: @text-color;
+    transition-property: background-color;
+    transition: 0s ease-in-out;
+    border-radius: 0px 0px 0px 0px;
+}
+
+window#waybar.empty {
+    /*opacity: 0.1;*/
+    background-color: @background-translucent;
+    transition-duration: 0s;
+}
+
+window#waybar.empty #backlight,
+window#waybar.empty #battery,
+window#waybar.empty #pulseaudio,
+window#waybar.empty #cpu,
+window#waybar.empty #user,
+window#waybar.empty #disk,
+window#waybar.empty #memory,
+window#waybar.empty #window, 
+window#waybar.empty #cava,
+window#waybar.empty #network,
+window#waybar.empty #clock { 
+    margin: 2px;
+    padding: 2px 15px;
+    color: @text-color;
+    font-size: 13px;
+    background: transparent;
+    transition-duration: 0.2s;
+}
+
+
+#network.disconnected {
+    background-color: @warn-red;
+}
+

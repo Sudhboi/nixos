@@ -7,6 +7,7 @@
     ./modules/custom_binds.nix
     ./modules/system.nix
     ./modules/default_binds.nix
+    ./modules/startup_spawns.nix
   ];
 
   programs.niri = {

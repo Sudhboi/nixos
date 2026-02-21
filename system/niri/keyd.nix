@@ -3,18 +3,20 @@
 {
   services.keyd = {
     enable = true;
-    default = {
-      extraConfig = ''
-[ids]
+    keyboards = {
+      default = {
+        extraConfig = ''
+  [ids]
 
-*
+  *
 
-[main]
+  [main]
 
-capslock = overload(control, esc)
-insert = capslock
-f23+leftshift+leftmeta = C-space
-    '';
+  capslock = overload(control, esc)
+  insert = capslock
+  f23+leftshift+leftmeta = C-space
+      '';
     };
   };
-}
+  };
+  }
