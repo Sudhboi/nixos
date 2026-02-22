@@ -7,5 +7,6 @@
     ./shell/shell_stuff.nix
     ./desktop/waybar/waybar.nix
     ./desktop/swaync/swaync.nix
+    ./desktop/wallpapers/wallpapers.nix
   ];
 }

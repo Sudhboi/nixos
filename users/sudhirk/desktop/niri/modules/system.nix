@@ -13,7 +13,7 @@
         width = 2880;
         refresh = 120.0;
       };
-      scale = 1.7;
+      scale = 1.65;
       variable-refresh-rate = true;
     };
   };

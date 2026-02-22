@@ -16,5 +16,23 @@
     hotkey-overlay.skip-at-startup = true;
 
     prefer-no-csd = true;
+
+    overview = {
+      workspace-shadow.enable = false;
+      backdrop-color = "transparent";
+    };
+
+    cursor = {
+      hide-after-inactive-ms = 5000;
+    };
+
+    layer-rules = [
+      {
+        matches = [
+          { namespace = "^wallpaper$"; }
+        ];
+        place-within-backdrop = true;
+        }
+    ];
   };
 }

@@ -8,7 +8,6 @@
 
     shellAliases = {
       nrs = "sudo nixos-rebuild switch --flake ~/.dotfiles";
-      hms = "home-manager switch --flake ~/.dotfiles";
 
       q = "exit";
       bat-info="cat /sys/class/power_supply/BAT0/uevent";
@@ -18,6 +17,13 @@
     };
 
     initContent = ''
+
+function hms() {
+    cd ~/.dotfiles/
+    git add .
+    home-manager switch --flake ~/.dotfiles/
+    cd -
+}
 
 function k1() {
     for ((i = 0.9 ; i <= 1.0 ; i = i + 0.05 )); do sleep 0.001 && kitty @ set-background-opacity $i; done

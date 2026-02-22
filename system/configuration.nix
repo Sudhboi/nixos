@@ -109,6 +109,7 @@
     emacs-pgtk
     vim
     wget
+    libnotify
     git
     kitty
     gnumake
