@@ -11,5 +11,6 @@
     { sh = "/usr/bin/niri-sidebar listen"; }
     { sh = "quickshell"; }
     { sh = "emacs --daemon"; }
+    { sh = "~/.config/niri/scripts/battery.sh"; }
   ];
 }

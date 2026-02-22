@@ -1,5 +1,3 @@
-#!/bin/bash
-
 old_val="None"
 
 while true; do

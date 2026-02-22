@@ -125,6 +125,7 @@
     clang
     vesktop
     cmake
+    jdk
     gcc
   ];
 
