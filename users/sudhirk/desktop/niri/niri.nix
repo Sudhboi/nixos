@@ -15,6 +15,6 @@
     package = pkgs.niri;
   };
 
-  home.file."niri/scripts/niri_tile_to_n.py".source = ./scripts/niri_tile_to_n.py;
-
+  home.file.".config/niri/scripts/niri_tile_to_n.py".source = ./scripts/niri_tile_to_n.py;
+  home.file.".config/niri/scripts/battery.sh".source = ./scripts/battery.sh;
 }

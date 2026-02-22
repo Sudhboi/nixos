@@ -6,5 +6,6 @@
     ./desktop/niri/niri.nix
     ./shell/shell_stuff.nix
     ./desktop/waybar/waybar.nix
+    ./desktop/swaync/swaync.nix
   ];
 }
