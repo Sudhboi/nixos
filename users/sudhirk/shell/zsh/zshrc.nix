@@ -79,8 +79,6 @@ function acp() {
     git push
 }
 
-#cat ~/sudhir.txt
-
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 

@@ -79,7 +79,7 @@
   #  /etc/profiles/per-user/sudhirk/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    EDITOR = "emacs";
+    EDITOR = "emacsclient -c";
   };
 
   # Let Home Manager install and manage itself.

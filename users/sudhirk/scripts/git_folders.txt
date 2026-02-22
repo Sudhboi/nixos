@@ -1,0 +1,3 @@
+/home/sudhirk/Programming/ASchoolWork/Assignments
+/home/sudhirk/LaTeX
+/home/sudhirk/.dotfiles

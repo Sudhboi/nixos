@@ -1,0 +1,12 @@
+function gitit () {
+    cd $1
+    git add .
+    notify-send "$(git commit -m "$(date) - Sync Commit")"
+    notify-send "$(git push)"
+}
+
+read dir
+while [[ "$dir" != "" ]]; do
+    gitit $dir
+    read dir
+done
