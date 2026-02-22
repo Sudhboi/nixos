@@ -19,6 +19,8 @@
 
     initContent = ''
 
+export PATH="$HOME/.emacs.d/bin:$PATH"
+
 function hms() {
     cd ~/.dotfiles/
     git add .

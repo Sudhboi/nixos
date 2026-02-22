@@ -10,11 +10,12 @@
       ./hardware-configuration.nix
       ./niri/niri.nix
       ./keyd/keyd.nix
+      ./tlp/tlp.nix
     ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.consoleMode = "max";
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -32,9 +33,6 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_CA.UTF-8";
-
-  # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
 
   services.displayManager = {
     sddm = {

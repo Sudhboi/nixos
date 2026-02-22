@@ -13,5 +13,6 @@
       allow_remote_control = true;
       font_family = "IosevkaTerm Nerd Font";
     };
+    themeFile = "Catppuccin-Macchiato";
   };
 }

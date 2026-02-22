@@ -27,6 +27,10 @@ window#waybar.empty {
     transition-duration: 0s;
 }
 
+window#waybar.empty * {
+    font-size: 13px;
+}
+
 window#waybar.empty #backlight,
 window#waybar.empty #battery,
 window#waybar.empty #pulseaudio,
