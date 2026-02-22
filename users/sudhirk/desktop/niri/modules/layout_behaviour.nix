@@ -24,6 +24,7 @@
 
     cursor = {
       hide-after-inactive-ms = 5000;
+      size = 24;
     };
 
     layer-rules = [
