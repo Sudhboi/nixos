@@ -8,4 +8,6 @@
     ./wallpapers/wallpapers.nix
     ./cursor/cursor.nix
   ];
+
+  xdg.configFile."wlr-which-key/config.yaml".source = ./wlr-which-key/config.yaml;
 }

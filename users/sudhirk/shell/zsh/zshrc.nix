@@ -14,6 +14,7 @@
       dt="~/.backups/dotfiles/copy.sh";
       bruh="python3 ~/.bruh/bruh.py";
       wqa="pkill yazi";
+      lg="lazygit";
     };
 
     initContent = ''
