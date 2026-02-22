@@ -111,6 +111,7 @@
     wget
     git
     kitty
+    gnumake
     ripgrep
     libtool
     coreutils
@@ -119,7 +120,13 @@
     clang
     vesktop
     cmake
+    gcc
   ];
+
+  services.emacs = {
+    enable = true;
+    defaultEditor = true;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

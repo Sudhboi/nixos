@@ -15,4 +15,6 @@
     package = pkgs.niri;
   };
 
+  home.file."niri/scripts/niri_tile_to_n.py".source = ./scripts/niri_tile_to_n.py;
+
 }
