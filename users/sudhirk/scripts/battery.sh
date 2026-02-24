@@ -5,29 +5,29 @@ while true; do
     if [[ "$new_val" != "$old_val" ]]; then
         if [[ "$old_val" == "None" ]]; then
             if [[ "$new_val" == "Discharging" ]]; then
-                notify-send "󰚦  Not Plugged In"
+                notify-send -t 4 "󰚦  Not Plugged In"
             elif [[ "$new_val" == "Charging" ]]; then
-                notify-send "󰚥  Plugged In and Charging"
+                notify-send -t 4 "󰚥  Plugged In and Charging"
             elif [[ "$new_val" == "Not charging" ]]; then
-                notify-send "  Charged to Capacity"
+                notify-send -t 4 "  Charged to Capacity"
             fi
         elif [[ "$old_val" == "Charging" ]]; then
             if [[ "$new_val" == "Discharging" ]]; then
-                notify-send "󱐤  Charger Removed"
+                notify-send -t 4 "󱐤  Charger Removed"
             elif [[ "$new_val" == "Not charging" ]]; then
-                notify-send "  Finished Charging"
+                notify-send -t 4 "  Finished Charging"
             fi
         elif [[ "$old_val" == "Discharging" ]]; then
             if [[ "$new_val" == "Charging" ]]; then
-                notify-send "󰚥  Plugged In and Charging"
+                notify-send -t 4 "󰚥  Plugged In and Charging"
             elif [[ "$new_val" == "Not charging" ]]; then
-                notify-send "  Already Charged to Capacity"
+                notify-send -t 4 "  Already Charged to Capacity"
             fi
         elif [[ "$old_val" == "Not charging" ]]; then
             if [[ "$new_val" == "Charging" ]]; then
-                notify-send "󰚥  Charging"
+                notify-send -t 4 "󰚥  Charging"
             elif [[ "$new_val" == "Discharging" ]]; then
-                notify-send "󰚦  Charger Removed at Capacity"
+                notify-send -t 4 "󰚦  Charger Removed at Capacity"
             fi
         fi
     fi

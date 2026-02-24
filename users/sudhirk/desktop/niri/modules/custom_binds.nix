@@ -8,5 +8,6 @@
     "F12".action.spawn-sh = "kitty btop";
     "Mod+Space".action.spawn-sh = "vicinae toggle";
     "Ctrl+Space".action.spawn-sh = "wlr-which-key";
+    "Ctrl+F10".action.spawn-sh = "notify-send -t 1000 \"$(date '+TIME: %H:%M:%S')\"";
   };
 }

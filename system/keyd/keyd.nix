@@ -14,7 +14,7 @@
 
   capslock = overload(control, esc)
   insert = capslock
-  f23+leftshift+leftmeta = C-space
+  f23+leftshift+leftmeta = C-f10
       '';
     };
   };

@@ -7,6 +7,8 @@
     ./swaync/swaync.nix
     ./wallpapers/wallpapers.nix
     ./cursor/cursor.nix
+    ./hypr/hypridle.nix
+    ./hypr/hyprlock.nix
   ];
 
   xdg.configFile."wlr-which-key/config.yaml".source = ./wlr-which-key/config.yaml;

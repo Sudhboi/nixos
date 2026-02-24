@@ -5,13 +5,13 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./niri/niri.nix
-      ./keyd/keyd.nix
-      ./tlp/tlp.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./niri/niri.nix
+    ./keyd/keyd.nix
+    ./tlp/tlp.nix
+  ];
 
   # Bootloader.
   boot.loader.efi.canTouchEfiVariables = true;
@@ -82,11 +82,14 @@
   users.users.sudhirk = {
     isNormalUser = true;
     description = "Sudhir Krisna";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     shell = pkgs.zsh;
     packages = with pkgs; [
       kdePackages.kate
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
@@ -106,6 +109,7 @@
 
   services.flatpak.enable = true;
 
+  security.pam.services.hyprlock = { };
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -113,9 +117,11 @@
     vim
     wget
     libnotify
+    brightnessctl
     git
     kitty
     gnumake
+    nixfmt
     ripgrep
     libtool
     coreutils
@@ -126,6 +132,7 @@
     cmake
     jdk
     obsidian
+    rustup
   ];
 
   programs.nix-ld.enable = true;
@@ -160,5 +167,8 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.11"; # Did you read the comment?
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 }
