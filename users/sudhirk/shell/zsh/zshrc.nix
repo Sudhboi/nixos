@@ -51,9 +51,11 @@ function yo() {
 function yq() {
   if [ "$1" != "" ]; then
     if [ -d "$1" ]; then
-      yo "$1"
+      cd "$1"
+      yo
     else
-      yo "$(zoxide query $1)"
+      cd "$(zoxide query $1)"
+      yo
     fi
   else
     yo
@@ -69,7 +71,8 @@ function y() {
 
 function n() {
     k1
-    nvim $1
+    cd $1
+    nvim .
     k9
 }
 
