@@ -12,6 +12,6 @@
     { sh = "emacs --daemon"; }
 
     { sh = "/home/sudhirk/.scripts/battery.sh"; }
-    { sh = "sleep 5 && /home/sudhirk/.scripts/sync_boot.sh < /home/sudhirk/.scripts/git_folders.txt"; }
+    { sh = "/home/sudhirk/.scripts/sync_boot.sh < /home/sudhirk/.scripts/git_folders.txt"; }
   ];
 }
