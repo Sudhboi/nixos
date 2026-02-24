@@ -13,6 +13,8 @@
       bruh = "python3 ~/.bruh/bruh.py";
       wqa = "pkill yazi";
       lg = "lazygit";
+      push = "/home/sudhirk/.scripts/sync_poweroff.sh < /home/sudhirk/.scripts/git_folders.txt";
+      pull = "/home/sudhirk/.scripts/sync_boot.sh < /home/sudhirk/.scripts/git_folders.txt";
     };
 
     initContent = ''
