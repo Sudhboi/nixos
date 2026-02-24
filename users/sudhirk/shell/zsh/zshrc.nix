@@ -7,8 +7,6 @@
     syntaxHighlighting.enable = true;
 
     shellAliases = {
-      nrsl = "sudo nixos-rebuild switch --flake ~/.dotfiles#laptop";
-
       q = "exit";
       bat-info = "cat /sys/class/power_supply/BAT0/uevent";
       dt = "~/.backups/dotfiles/copy.sh";
@@ -20,13 +18,6 @@
     initContent = ''
 
       export PATH="$HOME/.emacs.d/bin:$PATH"
-
-      function hms() {
-          cd ~/.dotfiles/
-          git add .
-          home-manager switch --flake ~/.dotfiles/
-          cd -
-      }
 
       function k1() {
           for ((i = 0.9 ; i <= 1.0 ; i = i + 0.05 )); do sleep 0.001 && kitty @ set-background-opacity $i; done
@@ -84,8 +75,6 @@
 
       eval "$(starship init zsh)"
       eval "$(zoxide init zsh)"
-
-
     '';
   };
 }

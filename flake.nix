@@ -42,14 +42,24 @@
       nixosConfigurations = {
         laptop = lib.nixosSystem {
           inherit system;
-          modules = [ ./system/laptop/configuration.nix ];
+          modules = [ ./system/laptop/laptop.nix ];
+          specialArgs = { inherit inputs; };
+        };
+        desktop = lib.nixosSystem {
+          inherit system;
+          modules = [ ./system/desktop/desktop.nix ];
           specialArgs = { inherit inputs; };
         };
       };
       homeConfigurations = {
-        sudhirk = home-manager.lib.homeManagerConfiguration {
+        laptop = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [ ./users/sudhirk/home.nix ];
+          modules = [ ./users/sudhirk/laptop.nix ];
+          extraSpecialArgs = { inherit inputs; };
+        };
+        desktop = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [ ./users/sudhirk/desktop.nix ];
           extraSpecialArgs = { inherit inputs; };
         };
       };

@@ -5,14 +5,17 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./niri/niri.nix
+    ./keyd/keyd.nix
+    ./tlp/tlp.nix
+  ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.consoleMode = "max";
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -30,13 +33,16 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_CA.UTF-8";
 
-  # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = true;
-
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  services.displayManager = {
+    sddm = {
+      enable = true;
+      wayland.enable = true;
+    };
+    autoLogin = {
+      enable = true;
+      user = "sudhirk";
+    };
+  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -66,16 +72,33 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  # Enable ZSH
+  environment.shells = with pkgs; [ zsh ];
+  users.defaultUserShell = pkgs.zsh;
+  programs.zsh.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.sudhirk = {
     isNormalUser = true;
     description = "Sudhir Krisna";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
+    shell = pkgs.zsh;
     packages = with pkgs; [
       kdePackages.kate
-    #  thunderbird
+      #  thunderbird
     ];
   };
+
+  fonts.packages = with pkgs; [
+    nerd-fonts.fira-code
+    nerd-fonts.droid-sans-mono
+    nerd-fonts.iosevka-term
+    nerd-fonts.symbols-only
+    nerd-fonts.jetbrains-mono
+  ];
 
   # Install firefox.
   programs.firefox.enable = true;
@@ -83,12 +106,37 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  services.flatpak.enable = true;
+
+  security.pam.services.hyprlock = { };
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    python3
+    vim
     wget
+    libnotify
+    brightnessctl
     git
+    kitty
+    gnumake
+    nixfmt
+    ripgrep
+    libtool
+    coreutils
+    fd
+    geteduroam-cli
+    clang
+    vesktop
+    cmake
+    jdk
+    obsidian
+    rustup
+  ];
+
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    gcc
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -118,4 +166,8 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.11"; # Did you read the comment?
 
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 }
