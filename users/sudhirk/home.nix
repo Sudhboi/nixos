@@ -1,14 +1,28 @@
-{ inputs, config, pkgs, ... }:
+{
+  inputs,
+  config,
+  pkgs,
+  ...
+}:
 
 let
-  tex = (pkgs.texliveMedium.withPackages (
-    ps: with ps; [
-      dvisvgm dvipng # for preview and export as html
-      wrapfig amsmath ulem hyperref capt-of
-      enumitem gensymb
-      #(setq org-latex-compiler "lualatex")
-      #(setq org-preview-latex-default-process 'dvisvgm)
-  ]));
+  tex = (
+    pkgs.texliveMedium.withPackages (
+      ps: with ps; [
+        dvisvgm
+        dvipng # for preview and export as html
+        wrapfig
+        amsmath
+        ulem
+        hyperref
+        capt-of
+        enumitem
+        gensymb
+        #(setq org-latex-compiler "lualatex")
+        #(setq org-preview-latex-default-process 'dvisvgm)
+      ]
+    )
+  );
 in
 {
   imports = [
@@ -45,6 +59,7 @@ in
     ncdu
     tex
     vicinae
+    heroic
     # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
