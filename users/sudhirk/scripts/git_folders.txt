@@ -1,4 +1,4 @@
-/home/sudhirk/Programming/ASchoolWork/Assignments
+/home/sudhirk/Programming
 /home/sudhirk/LaTeX
 /home/sudhirk/.config/nvim
 /home/sudhirk/.dotfiles
