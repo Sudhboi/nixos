@@ -110,7 +110,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     python3
-    emacs-pgtk
     vim
     wget
     libnotify
@@ -126,6 +125,11 @@
     vesktop
     cmake
     jdk
+    obsidian
+  ];
+
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
     gcc
   ];
 

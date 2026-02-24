@@ -1,5 +1,15 @@
 { inputs, config, pkgs, ... }:
 
+let
+  tex = (pkgs.texliveMedium.withPackages (
+    ps: with ps; [
+      dvisvgm dvipng # for preview and export as html
+      wrapfig amsmath ulem hyperref capt-of
+      enumitem gensymb
+      #(setq org-latex-compiler "lualatex")
+      #(setq org-preview-latex-default-process 'dvisvgm)
+  ]));
+in
 {
   imports = [
     inputs.zen-browser.homeModules.twilight
@@ -33,7 +43,11 @@
     wlr-which-key
     btop
     ncdu
-    # # It is sometimes useful to fine-tune packages, for example, by applying
+    tex
+    vicinae
+    tree-sitter-grammars.tree-sitter-java
+    ghostscript
+    # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
     # # fonts?
@@ -79,7 +93,7 @@
   #  /etc/profiles/per-user/sudhirk/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    EDITOR = "emacsclient -c";
+    EDITOR = "nvim";
   };
 
   # Let Home Manager install and manage itself.

@@ -1,11 +1,9 @@
 function gitit () {
     (
         cd "$1"
-        if (! git diff --quiet) || (! git diff --quiet --cached); then
-            git add .
-            git commit -m "$(date) - Sync Commit" >> "/home/sudhirk/.logs/$(basename "$1").log"
-            git push >> "/home/sudhirk/.logs/$(basename "$1").log"
-        fi
+        git add .
+        git commit -m "$(date) - Sync Commit" >> "/home/sudhirk/.logs/$(basename "$1").log"
+        git push >> "/home/sudhirk/.logs/$(basename "$1").log"
     ) &
 }
 
@@ -14,4 +12,3 @@ while read -r dir && [[ -n "$dir" ]]; do
 done
 
 wait
-poweroff
