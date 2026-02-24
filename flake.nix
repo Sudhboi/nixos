@@ -24,32 +24,34 @@
     };
   };
 
-  outputs = inputs @ {
+  outputs =
+    inputs@{
       self,
       nixpkgs,
       home-manager,
       zen-browser,
       niri,
       ...
-  }:
+    }:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-    in {
-    nixosConfigurations = {
-      nixos = lib.nixosSystem {
-        inherit system;
-        modules = [ ./system/configuration.nix ];
-        specialArgs = { inherit inputs; };
+    in
+    {
+      nixosConfigurations = {
+        laptop = lib.nixosSystem {
+          inherit system;
+          modules = [ ./system/laptop/configuration.nix ];
+          specialArgs = { inherit inputs; };
+        };
+      };
+      homeConfigurations = {
+        sudhirk = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [ ./users/sudhirk/home.nix ];
+          extraSpecialArgs = { inherit inputs; };
+        };
       };
     };
-    homeConfigurations = {
-      sudhirk = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [ ./users/sudhirk/home.nix ];
-        extraSpecialArgs = { inherit inputs; };
-      };
-    };
-  };
 }

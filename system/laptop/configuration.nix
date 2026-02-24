@@ -8,9 +8,9 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./niri/niri.nix
-    ./keyd/keyd.nix
-    ./tlp/tlp.nix
+    ./../niri/niri.nix
+    ./../keyd/keyd.nix
+    ./../tlp/tlp.nix
   ];
 
   # Bootloader.
