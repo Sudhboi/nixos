@@ -54,6 +54,7 @@ in
     zoxide
     swaybg
     lazygit
+    zathura
     wlr-which-key
     btop
     ncdu
