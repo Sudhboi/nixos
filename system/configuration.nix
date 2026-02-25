@@ -124,6 +124,7 @@
     ripgrep
     libtool
     coreutils
+    pciutils
     fd
     geteduroam-cli
     clang
