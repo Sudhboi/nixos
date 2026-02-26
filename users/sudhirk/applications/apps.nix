@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./sioyek/sioyek.nix
+    #./sioyek/sioyek.nix
     ./neovim/nvim.nix
   ];
 
