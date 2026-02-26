@@ -11,13 +11,18 @@ let
       ps: with ps; [
         dvisvgm
         dvipng # for preview and export as html
+        tcolorbox
+        tikzfill
         wrapfig
         amsmath
         ulem
         hyperref
+        listings
+        listingsutf8
         minted
         capt-of
         upquote
+        pdfcol
         enumitem
         gensymb
         framed
@@ -58,8 +63,6 @@ in
     swaybg
     lazygit
     wlr-which-key
-    python3Packages.pygments
-    python3Packages.catppuccin
     btop
     ncdu
     tex

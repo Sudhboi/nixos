@@ -113,6 +113,9 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     python3
+    python3Packages.pygments
+    python3Packages.catppuccin
+    python3Packages.pygments-catppuccin
     vim
     wget
     libnotify
