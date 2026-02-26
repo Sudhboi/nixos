@@ -15,9 +15,12 @@ let
         amsmath
         ulem
         hyperref
+        minted
         capt-of
+        upquote
         enumitem
         gensymb
+        framed
         #(setq org-latex-compiler "lualatex")
         #(setq org-preview-latex-default-process 'dvisvgm)
       ]
@@ -55,11 +58,14 @@ in
     swaybg
     lazygit
     wlr-which-key
+    python3Packages.pygments
+    python3Packages.catppuccin
     btop
     ncdu
     tex
     vicinae
     heroic
+    nautilus
     # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
