@@ -8,7 +8,7 @@
         width = 2880;
         refresh = 120.0;
       };
-      scale = 1.65;
+      scale = 1.66;
       variable-refresh-rate = true;
     };
   };
