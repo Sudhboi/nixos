@@ -30,10 +30,10 @@
     layer-rules = [
       {
         matches = [
-          { namespace = "^wallpaper$"; }
+          { namespace = "^hyprpaper$"; }
         ];
         place-within-backdrop = true;
-        }
+      }
     ];
   };
 }

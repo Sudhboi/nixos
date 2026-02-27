@@ -3,10 +3,6 @@
 {
   services.hyprpaper = {
     enable = true;
-    settings = {
-      wallpaper = [
-        "~/.config/wallpapers/wallpaper_desktop"
-      ];
-    };
   };
+  home.file.".config/hypr/hyprpaper.conf".source = ./hyprpaper.conf;
 }
