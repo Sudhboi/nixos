@@ -5,7 +5,7 @@
     enable = true;
     settings = {
       wallpaper = [
-        "~/.config/wallpaper_desktop"
+        "~/.config/wallpapers/wallpaper_desktop"
       ];
     };
   };
