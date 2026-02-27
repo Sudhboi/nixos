@@ -5,7 +5,7 @@ let
 in
 {
   home.file = {
-    "${wallpaper_path}/wallpaper_desktop".source = ./Wallpaper-Gargantua.jpg;
+    "${wallpaper_path}/wallpaper_desktop".source = ./Wallpaper-Nix.png;
     "${wallpaper_path}/wallpaper_lockscreen".source = ./Wallpaper-Moon.jpg;
   };
 }
