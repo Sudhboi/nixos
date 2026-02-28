@@ -10,3 +10,5 @@ nm-online >>/dev/null
 while read -r dir && [[ -n "$dir" ]]; do
     giterit $dir
 done
+
+wait
